@@ -8,6 +8,14 @@ pub extern "C" fn blake3_hasher_new() -> *mut blake3_hasher {
 }
 
 #[no_mangle]
+pub extern "C" fn blake3_hasher_reset(hasher: *mut blake3_hasher) {
+    unsafe {
+        let hasher = &mut *(hasher as *mut blake3_hasher);
+        hasher.0.reset();
+    }
+}
+
+#[no_mangle]
 pub extern "C" fn blake3_hasher_update(hasher: *mut blake3_hasher, buf: *const u8, len: usize) {
     unsafe {
         let hasher = &mut *(hasher as *mut blake3_hasher);

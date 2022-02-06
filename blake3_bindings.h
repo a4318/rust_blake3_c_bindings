@@ -7,6 +7,8 @@ typedef struct blake3_hasher blake3_hasher;
 
 struct blake3_hasher *blake3_hasher_new(void);
 
+void blake3_hasher_reset(struct blake3_hasher *hasher);
+
 void blake3_hasher_update(struct blake3_hasher *hasher, const uint8_t *buf, uintptr_t len);
 
 void blake3_hasher_finalize(const struct blake3_hasher *hasher, uint8_t (*out)[32]);
