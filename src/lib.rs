@@ -1,3 +1,4 @@
+extern crate libc;
 #[allow(non_camel_case_types)]
 pub struct blake3_hasher(blake3::Hasher);
 
